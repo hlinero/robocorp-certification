@@ -1,11 +1,9 @@
 *** Settings ***
 Documentation     Inhuman Insurance, Inc. Artificial Intelligence System robot.
 ...               Produces traffic data work items.
-Library           RPA.HTTP
-Library           RPA.JSON
 Library           RPA.Tables
 Library           Collections
-Library           RPA.Robocorp.WorkItems
+Resource          shared.robot
 
 *** Variables ***
 ${TRAFFIC_JSON_FILE_PATH}=    ${OUTPUT_DIR}${/}traffic.json
@@ -73,6 +71,6 @@ Save work item payloads
     [Arguments]    ${payloads}
     FOR    ${payload}    IN    @{payloads}
         Create Output Work Item
-        Set Work Item Variable    traffic_data    ${payload}
+        Set Work Item Variable    ${WORK_ITEM_NAME}    ${payload}
         Save Work Item
     END
