@@ -1,6 +1,8 @@
 tasks:
-  Run all tasks:
-    shell: python -m robot --report NONE --outputdir output --logtitle "Task log" tasks.robot
+  Produce traffic data work items:
+    robotTaskName: Produce traffic data work items
+  Consume traffic data work items:
+    robotTaskName: Consume traffic data work items
 
 condaConfigFile: conda.yaml
 artifactsDir: output
